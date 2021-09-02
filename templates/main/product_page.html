@@ -1,0 +1,388 @@
+{% load static %}
+{% load main_tags %}
+{% page_data as pd %}
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="TEST">
+    <meta name="keywords" content="TEST">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% for mt in product_meta %}
+        {% if mt.slug in request.path %}
+            <title>{{ mt.meta_title }}</title>
+            <meta name="description" content="{{ mt.meta_description }}" />
+        {% endif %}
+    {% endfor %}
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Sonet" />
+    <link type="text/css" href="{% static 'main/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link type="text/css" href="{% static 'main/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link type="text/css" href="{% static 'main/css/elegant-icons.css' %}" rel="stylesheet">
+    <link type="text/css" href="{% static 'main/css/nice-select.css' %}" rel="stylesheet">
+    <link type="text/css" href="{% static 'main/css/jquery-ui.min.css' %}" rel="stylesheet">
+    <link type="text/css" href="{% static 'main/css/owl.carousel.min.css' %}" rel="stylesheet">
+    <link type="text/css" href="{% static 'main/css/slicknav.min.css' %}" rel="stylesheet">
+    <link type="text/css" href="{% static 'main/css/style.css' %}" rel="stylesheet">
+    <meta http-equiv="Content-Type" content content="text/html; charset=utf-8">
+    <link rel="shortcut icon" href="#">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="humberger__menu__overlay"></div>
+    <div class="humberger__menu__wrapper">
+        <div class="humberger__menu__logo">
+            <a href="#"><img src="img/logo.png" alt=""></a>
+        </div>
+        <nav class="humberger__menu__nav mobile-menu">
+            <ul>
+                <li class="active"><a href="/admin/">Адмінка</a></li>
+                <li><a href="/catalog/">Магазин</a></li>
+                <li><a href="#">Страницы</a>
+                    <ul class="header__menu__dropdown">
+                        {% for p in pd %}
+                            <li>
+                                <a href="{{ p.get_absolute_url }}">{{ p.title }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li><a href="/articles/">Блог</a></li>
+
+            </ul>
+        </nav>
+<ul>
+    </ul>
+        <div class="humberger__menu__contact">
+            <ul>
+                <li><i class="fa fa-envelope"></i> info@sonet.kiev.ua</li>
+                <li>Поле для нотификации</li>
+            </ul>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="header__top__left">
+                            <ul>
+                                <li><i class="fa fa-envelope"></i>info@sonet.kiev.ua</li>
+                                <li>Поле для нотификации</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="header__top__right">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="header__logo">
+                        <a href="/"><img src="{% static 'main/img/logo.png' %}" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <nav class="header__menu">
+                        <ul>
+                <li><a href="/admin/">Адмінка</a></li>
+                <li><a href="/catalog/">Магазин</a></li>
+                <li><a href="#">Страницы</a>
+                    <ul class="header__menu__dropdown">
+                       {% for p in pd %}
+                            <li>
+                                <a href="{{ p.get_absolute_url }}">{{ p.title }}</a>
+                            </li>
+                        {% endfor %}
+
+                    </ul>
+                </li>
+                <li><a href="/articles/">Блог</a></li>
+
+            </ul>
+                    </nav>
+                </div>
+
+            </div>
+            <div class="humberger__open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </header>
+<section class="hero  hero-normal">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="hero__categories">
+                        <div class="hero__categories__all">
+                            <i class="fa fa-bars"></i>
+                            <span>Все категории</span>
+                        </div>
+                         <ul>
+                           <li><a href="">Коммутаторы</a>
+                            <ul class="hero__sub__category">
+                                    <li><a href="#">Smart коммутаторы</a></li>
+                                    <li><a href="#">Неуправляемые коммутаторы</a></li>
+                                    <li><a href="#">Неупраляемые Gigabit</a></li>
+                                    <li><a href="#">Управляемые</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Витая пара</a>
+                                <ul class="hero__sub__category">
+                                    <li><a href="#">Витая пара UTP</a></li>
+                                    <li><a href="#">Витая пара FTP</a></li>
+                                    <li><a href="#">Телефонный кабель</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Коаксиальный кабель</a></li>
+                            <li><a href="#">Кабельные каналы</a></li>
+                            <li><a href="#">Шкафы и стойки 19"</a>
+                                <ul class="hero__sub__category">
+                                    <li><a href="#">Шкафы напольные 19"</a></li>
+                                    <li><a href="#">Стойки 19"</a></li>
+                                    <li><a href="#">Кронштейны настенные</a></li>
+                                    <li><a href="#">Шкафы настенные 10"</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Патч панели</a></li>
+                            <li><a href="#">Розетки и выключатели</a>
+                                <ul class="hero__sub__category">
+                                    <li><a href="#">Розетки</a></li>
+                                    <li><a href="#">Выключатели</a></li>
+                                    <li><a href="#">Подрозетники</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Кабельные лотки</a>
+                                <ul class="hero__sub__category">
+                                    <li><a href="#">Лотки перфорированные</a></li>
+                                    <li><a href="#">Лотки цельные</a></li>
+                                    <li><a href="#">Лотки сетчатые</a></li>
+                                    <li><a href="#">Аксессуары к лоткам</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="">Гофротруба</a></li>
+                            <li><a href="">Металлорукав</a></li>
+
+                            <li><a href="">Крепеж</a>
+                                <ul class="hero__sub__category">
+                                    <li><a href="#">Стяжки</a></li>
+                                    <li><a href="#">Площадки</a></li>
+                                    <li><a href="#">Скобы</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Инструменты СКС</a>
+                                <ul class="hero__sub__category">
+                                    <li><a href="#">Lan тестеры</a></li>
+                                    <li><a href="#">Интернет розетки</a></li>
+                                    <li><a href="#">Коннекторы, колпачки</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="hero__search">
+                        <div class="hero__search__form">
+                            <form action="#">
+
+                                <input type="text" placeholder="Поиск">
+                                <button type="submit" class="site-btn">ПОИСК</button>
+                            </form>
+                        </div>
+                        <div class="hero__search__phone">
+                            <div class="hero__search__phone__icon">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <div class="hero__search__phone__text">
+                                <h5>0 800 666 66 66</h5>
+                                <h5>(044) 666 66 66</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+  {% block content %}
+    <section class="product-details spad">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6 col-md-6">
+                    <div class="product__details__pic">
+                        <div class="product__details__pic__item">
+                            <img class="product__details__pic__item--large"
+                                src="{{ product.image.url}}" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="product__details__text">
+                        <h3>{{ product.title }}</h3>
+                        <div class="product__details__rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+
+                        </div>
+                        <div class="product__details__price">{{ product.price }} грн</div>
+                        <p>{{ product.short_description }}</p>
+                        <div class="product__details__quantity">
+                            <div class="quantity">
+                                <div class="pro-qty">
+                                    <input type="text" value="1">
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="primary-btn">Купить</a>
+                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                        <ul>
+                            <li>
+                                <b>Наличие</b>
+                                    {% if product.availability == True %}
+                                        <span>В наличии</span>
+                                            {% else %}
+                                            <span>Нет наличии</span>
+                                    {% endif %}
+                            </li>
+                            <li>
+                                <span><strong>Производитель   </strong></span>
+                                    <span>{{ product.vendor }}</span>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="product__details__tab">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab"
+                                    aria-selected="true">Характеристики</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab"
+                                    aria-selected="false">Описание</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
+                                    aria-selected="false">Отзывы</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                                <div class="product__details__tab__desc">
+                                    <h6>Характеристики</h6>
+
+                                            {{ product.characters|safe }}
+
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabs-2" role="tabpanel">
+                                <div class="product__details__tab__desc">
+                                    <h6>Описание товара</h6>
+                                    <p>{{ product.description }}</p>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabs-3" role="tabpanel">
+                                <div class="product__details__tab__desc">
+                                    <h6>Отзывы</h6>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+  {% endblock %}
+
+  {% block info %}
+    <section class="categories">
+        <div class="container">
+            <div class="section-title">
+                <h2>Рекомендованые категории</h2>
+            </div>
+            <div class="row">
+                {% category_slider_home as slider_cats %}
+                <div class="categories__slider owl-carousel">
+                    {% for i in slider_cats %}
+                    <div class="col-lg-3">
+                        <div class="categories__item set-bg" data-setbg="{{ i.image.url }}">
+                            <h5><a href="{{ i.get_absolute_url }}">{{ i.title }}</a></h5>
+                        </div>
+                    </div>
+                    {% endfor %}
+            </div>
+        </div>
+        </div>
+</section>
+  {% endblock %}
+
+{% block footer %}
+    <footer class="footer spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <br>
+                    <br>
+                    <div class="footer__about">
+                        <div class="footer__about__logo">
+                            <a href="/"><img src="{% static 'main/img/logo.png' %}" alt=""></a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+                    <div class="footer__widget">
+                        <h6>Контакты</h6>
+                     <ul>
+                            <li>Адреса: Козятын</li>
+                            <li>Телефоны:<br> 0 800 666 66 66<br> (044) 666 66 66</li>
+                            <li>Email: info@sonet.kiev.ua</li>
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="footer__widget">
+                       <h6>Страницы</h6>
+                        <ul>
+                            <li><a href="#">О нас</a></li>
+                            <li><a href="#">Контакты</a></li>
+                            <li><a href="#">Оплата и доставка</a></li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+        </div>
+    </footer>
+{% endblock %}
+    <script src="{% static 'main/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'main/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'main/js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'main/js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'main/js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'main/js/mixitup.min.js' %}"></script>
+    <script src="{% static 'main/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'main/js/main.js' %}"></script>
+</body>
+</html>

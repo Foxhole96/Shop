@@ -1,0 +1,101 @@
+{% extends '../base.html' %}
+
+{% load static %}
+{% load main_tags %}
+{% block content %}
+    <br>
+    <br>
+<section class="categories">
+        <div class="container">
+            <div class="section-title">
+                <h2>Рекомендованые категории</h2>
+            </div>
+            <div class="row">
+                {% category_slider_home as slider_cats %}
+                <div class="categories__slider owl-carousel">
+                    {% for i in slider_cats %}
+                    <div class="col-lg-3">
+                        <div class="categories__item set-bg" data-setbg="{{ i.image.url }}">
+                            <h5><a href="{{ i.get_absolute_url }}">{{ i.title }}</a></h5>
+                        </div>
+                    </div>
+                    {% endfor %}
+            </div>
+        </div>
+        </div>
+</section>
+{% endblock %}
+{% block lastproducts %}
+    <br>
+    <br>
+    <section class="categories">
+        <div class="container">
+            <div class="section-title">
+                <h2>Рекомендованые товары</h2>
+            </div>
+        </div>
+        </div>
+    </section>
+    <section class="featured spad">
+        <div class="container">
+            <div class="row featured__filter">
+                {% for j in last_products %}
+                 <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="featured__item">
+
+                        <div class="featured__item__pic set-bg" data-setbg="{{ j.image.url }}">
+                            <ul class="featured__item__pic__hover">
+                                <li><a href="{{ j.get_absolute_url }}"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="{{ j.get_absolute_url }}"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a href="{{ j.get_absolute_url }}">{{ j.title }}</a></h6>
+                            <h5>{{ j.price }} грн</h5>
+                        </div>
+
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block info %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="section-title from-blog__title">
+                <h2>Последние статьи</h2>
+            </div>
+        </div>
+    </div>
+    <section class="from-blog spad">
+            <div class="row">
+                {% for k in last_post %}
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="blog__item">
+                        <div class="blog__item__pic">
+                            <img src="{{ k.image.url }}" alt="">
+                        </div>
+                        <div class="blog__item__text" >
+                            <ul style="text-align: center">
+                                <li><i class="fa fa-calendar-o"></i> {{ k.date }}</li>
+                            </ul>
+                            <h5 style="text-align: center"><a href="{{ k.get_absolute_url }}">{{ k.title }}</a></h5>
+                            <p style="text-align: center">{{ k.short_description }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+    </section>
+</div>
+
+
+
+{% endblock %}
+
+
