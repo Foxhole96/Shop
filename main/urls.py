@@ -14,5 +14,5 @@ urlpatterns = [
     path('catalog/', ShopHome.as_view(), name='all_prods'),
 
 ]
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

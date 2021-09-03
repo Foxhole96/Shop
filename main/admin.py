@@ -1,8 +1,7 @@
 from django.forms import ModelChoiceField
 from django.contrib import admin
 from .models import *
-from eav.forms import BaseDynamicEntityForm
-from eav.admin import BaseEntityAdmin
+
 
 
 class CategoryAdmin(admin.ModelAdmin):

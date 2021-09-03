@@ -23,6 +23,7 @@ def menu():
 def feature_categories():
     return Category.objects.order_by('id')[:4]
 
+
 @register.simple_tag()
 def page_data():
     return SinglePages.objects.all().order_by('id')
